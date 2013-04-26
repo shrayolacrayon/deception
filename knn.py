@@ -21,6 +21,9 @@ def find_nearest(test, train_set, k):
       min_dist[index] = dist
       min_ind[index] = i
   return zip(min_ind, min_dist)
+
+def pick_closest(train_set,test):
+  mins = find_nearest(test,train_set)
   
 
 
