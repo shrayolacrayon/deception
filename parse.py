@@ -111,3 +111,7 @@ def numocc(token, table_name, table_type):
     else return 0
 #-----------------------------------#
 #COPY THIS WHOLE FILE AND WRITE YOUR CODE HERE!
+
+#return knn distributions
+def knn_distributions():
+    return PosDist,NegDist
