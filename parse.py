@@ -105,7 +105,7 @@ for l in labels:
     PosDecDist[l]=Counter(PosDec[l])
     NegDecDist[l]=Counter(NegDec[l])
 
-f = open('Validation', 'r');
+f = open('Test', 'r');
 s=f.read();
 test=[]
 k=0

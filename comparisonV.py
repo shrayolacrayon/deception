@@ -46,8 +46,8 @@ else:
 			numCorrectBig+=1
 
 
-	print numCorrectChar
+	#print numCorrectChar
 	print "This is the percent accuracy for each type of feature!"
-	print "Char: "+str(numCorrectChar/float(total))
-	print "Uni: "+str(numCorrectUni/float(total))
-	print "Big: "+str(numCorrectBig/float(total))
+	print "Char: "+str((numCorrectChar/float(total))*100)+"%"
+	print "Uni: "+str((numCorrectUni/float(total))*100)+"%"
+	print "Big: "+str((numCorrectBig/float(total))*100)+"%"
