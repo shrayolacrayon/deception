@@ -1,7 +1,7 @@
 #compare text files
-readingOutput1= open("svm1Tests/char.txt","r")
-readingOutput2= open("svm1Tests/uni.txt","r")
-readingOutput3= open("svm1Tests/big.txt","r")
+readingOutput1= open("svm2Tests/char.txt","r")
+readingOutput2= open("svm2Tests/uni.txt","r")
+readingOutput3= open("svm2Tests/big.txt","r")
 
 correctReadingOutput= open("ValidationAnswers/T:D.txt", "r")
 
@@ -27,6 +27,11 @@ for line in readingOutput3:
 for line in correctReadingOutput:
 	line.rstrip()
 	correct.append(line)
+
+readingOutput3.close()
+readingOutput2.close()
+readingOutput1.close()
+correctReadingOutput.close()
 
 if not (len(testChar) == len(correct) and len(testUni) == len(correct) and len(testBig) == len(correct)):
 	print "One of the files is the wrong size...too many or too few reviews"
