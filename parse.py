@@ -105,7 +105,7 @@ for l in labels:
     PosDecDist[l]=Counter(PosDec[l])
     NegDecDist[l]=Counter(NegDec[l])
 
-f = open('Test', 'r');
+f = open('Validation', 'r');
 s=f.read();
 test=[]
 k=0
@@ -155,7 +155,7 @@ def knn_distributions():
     return PosDist,NegDist
 
 def svm_buckets():
-    return PosDist, NegDist, DecDist, RealDist, PosRealDist, NegRealDist, PosDecDist, NegDecDist
+    return RealDist, DecDist, PosRealDist, NegRealDist, PosDecDist, NegDecDist, PosDist, NegDist
 
 def testingData():
     return test
