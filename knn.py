@@ -2,6 +2,8 @@
 from __future__ import division
 import math
 import sys
+import parse
+
 
 def calc_distance(vector1, vector2):
   s = 0
@@ -22,9 +24,13 @@ def find_nearest(test, train_set, k):
       min_ind[index] = i
   return zip(min_ind, min_dist)
 
-def pick_closest(train_set,test):
-  mins = find_nearest(test,train_set)
-  
+def pick_closest(train_set,test, mins):
+  if method == 1:
+    pass
+
+print parse.knn_distributions()
+    
+
 
 
 
