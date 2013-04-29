@@ -2,8 +2,8 @@
 from __future__ import division
 import math
 import sys
-import parse
-
+import parse2
+from scipy.spatial.distance import euclidean
 
 def calc_distance(vector1, vector2):
   s = 0
@@ -18,17 +18,68 @@ def find_nearest(test, train_set, k):
     #index of maximum value
     index = min_dist.index(max(min_dist))
     val = max(min_dist)
-    dist = calc_distance(test,t)
+    dist = euclidean(test,t)
     if val > dist:
       min_dist[index] = dist
       min_ind[index] = i
-  return zip(min_ind, min_dist)
+  return (min_ind, min_dist)
 
-def pick_closest(train_set,test, mins):
+def pick_closest(train_set,test, mins, method):
+  dec = 0
+  truth = 0
+  min_ind, min_dis = mins
   if method == 1:
-    pass
+    for m in min_ind:
+      print train_set[m]["isPos"]
+      if train_set[m]["IsPos"] == 0:
+        dec += 1
+      else:
+        truth += 1
+    if dec >= truth:
+      return 0
+    else: 
+      return 1
 
-print parse.knn_distributions()
+
+    
+
+def compile_train(gram_type, train):
+  new_train_list = []
+  for t in train:
+    new_train_list.append(t[gram_type])
+  return new_train_list
+
+
+baselines = ["uniVec", "bigVec", "charVec", "uniVecBIN", "bigVecBIN", "charVecBIN"]
+test, train = parse2.knn_distributions()
+
+def calc_nearest(baseline, trains, train):
+  tests = []
+  for review in test:
+    b = baselines[baseline]
+    mins = find_nearest(review[b], trains[baseline],1)
+    p = pick_closest(train, review, mins, 1)
+    print p
+    tests.append(p)
+  return tests
+def create_trains(train):
+  trains = []
+  for b in baselines:
+    t = compile_train(b,train)
+    trains.append(t)
+  return trains
+
+trains = create_trains(train)
+for t in train:
+  print t["IsPos"]
+
+print calc_nearest(0, trains, train)
+
+
+
+
+
+
     
 
 
