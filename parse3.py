@@ -1,16 +1,12 @@
 #Word N-gram
 #Character n-gram
 #Part of speech
-
-#Word N-gram
-#Character n-gram
-#Part of speech
 from nltk.tokenize import word_tokenize, wordpunct_tokenize, sent_tokenize
 from collections import Counter
 import time
 start_time = time.time()
 
-f = open('Train', 'r');
+f = open('train', 'r');
 s=f.read();
 train=[]
 k=0
@@ -167,7 +163,7 @@ def numocc(token, table_name, table_type):
         return table_name[table_type][token]
     else:
         return 0
-f= open('Test', 'r');
+f= open('test', 'r');
 s=f.read();
 test=[]
 k=0
@@ -197,7 +193,7 @@ for sent in s.split("\n"):
     bigDist=Counter(big)
     charDist=Counter(char)
     #vectorize:
-    test.append({"IsTrue":parts[0],"IsPos":parts[1],"text":parts[2], "uni":uni,"big":big,"char":char,"uniDist":uniDist,"bigDist":bigDist,"charDist":charDist})
+    test.append({"text":parts[2], "uni":uni,"big":big,"char":char,"uniDist":uniDist,"bigDist":bigDist,"charDist":charDist})
     if k==le/4:
         print "25% done"
     if k==le/2:
@@ -242,20 +238,6 @@ print time.time() - start_time, "seconds"
 #-----------------------------------#
 #COPY THIS WHOLE FILE AND WRITE YOUR CODE HERE!
 
-
-#def numocc(token, table_name, table_type):
-    #if token in table_name[table_type]
-        #return table_name[table_type][token]
-    #else return 0
-#-----------------------------------#
-#COPY THIS WHOLE FILE AND WRITE YOUR CODE HERE!
-
 #return knn distributions
 def knn_distributions():
-    return PosDist,NegDist
-
-def svm_buckets():
-    return RealDist, DecDist, PosRealDist, NegRealDist, PosDecDist, NegDecDist, PosDist, NegDist
-
-def testingData():
-    return test
+    return test, train
