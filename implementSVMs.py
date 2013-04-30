@@ -29,8 +29,8 @@ output= open('ValidationAnswers/T:D.txt',"w")
 #svm1 uni
 #svm1 big
 type1= 'char'
-#numFeaturesTrueC= getTotalCountFeature(type1, trueTable)
-#numFeaturesDecC= getTotalCountFeature(type1, decTable) 
+numFeaturesTrueC= getTotalCountFeature(type1, trueTable)
+numFeaturesDecC= getTotalCountFeature(type1, decTable) 
 
 numFeaturesPosC= getTotalCountFeature(type1, posTable)
 numFeaturesNegC= getTotalCountFeature(type1, negTable) 
@@ -42,8 +42,8 @@ numFeaturesTrueGivenNC= getTotalCountFeature(type1, trueNegTable)
 numFeaturesDecGivenNC= getTotalCountFeature(type1, decNegTable) 
 
 type2= 'uni'
-#numFeaturesTrueU= getTotalCountFeature(type2, trueTable)
-#numFeaturesDecU= getTotalCountFeature(type2, decTable) 
+numFeaturesTrueU= getTotalCountFeature(type2, trueTable)
+numFeaturesDecU= getTotalCountFeature(type2, decTable) 
 
 numFeaturesPosU= getTotalCountFeature(type2, posTable)
 numFeaturesNegU= getTotalCountFeature(type2, negTable) 
@@ -55,8 +55,8 @@ numFeaturesTrueGivenNU= getTotalCountFeature(type2, trueNegTable)
 numFeaturesDecGivenNU= getTotalCountFeature(type2, decNegTable) 
 
 type3= 'big'
-#numFeaturesTrueB= getTotalCountFeature(type3, trueTable)
-#numFeaturesDecB= getTotalCountFeature(type3, decTable) 
+numFeaturesTrueB= getTotalCountFeature(type3, trueTable)
+numFeaturesDecB= getTotalCountFeature(type3, decTable) 
 
 numFeaturesPosB= getTotalCountFeature(type3, posTable)
 numFeaturesNegB= getTotalCountFeature(type3, negTable) 
@@ -94,25 +94,26 @@ for te in test:
 	
 
 	if te == test[-1]:
-		#output1.write(str(SVM.getTrueOrDeceptive(type1, numFeaturesTrueC, numFeaturesDecC, te[type1], trueTable, decTable)))
-		#output2.write(str(SVM.getTrueOrDeceptive(type2, numFeaturesTrueU, numFeaturesDecU, te[type2], trueTable, decTable)))
-		#output3.write(str(SVM.getTrueOrDeceptive(type3, numFeaturesTrueB, numFeaturesDecB, te[type3], trueTable, decTable)))
+		output1.write(str(SVM.getTrueOrDeceptive(type1, numFeaturesTrueC, numFeaturesDecC, te[type1], trueTable, decTable)))
+		output2.write(str(SVM.getTrueOrDeceptive(type2, numFeaturesTrueU, numFeaturesDecU, te[type2], trueTable, decTable)))
+		output3.write(str(SVM.getTrueOrDeceptive(type3, numFeaturesTrueB, numFeaturesDecB, te[type3], trueTable, decTable)))
 		output4.write(str(trueOrDecC))
 		output5.write(str(trueOrDecU))
 		output6.write(str(trueOrDecB))
 		output.write(str(te["IsTrue"]))
 	else:
-		#output1.write(str(SVM.getTrueOrDeceptive(type1, numFeaturesTrueC, numFeaturesDecC, te[type1], trueTable, decTable))+"\n")
-		#output2.write(str(SVM.getTrueOrDeceptive(type2, numFeaturesTrueU, numFeaturesDecU, te[type2], trueTable, decTable))+"\n")
-		#output3.write(str(SVM.getTrueOrDeceptive(type3, numFeaturesTrueB, numFeaturesDecB, te[type3], trueTable, decTable))+"\n")
+		output1.write(str(SVM.getTrueOrDeceptive(type1, numFeaturesTrueC, numFeaturesDecC, te[type1], trueTable, decTable))+"\n")
+		output2.write(str(SVM.getTrueOrDeceptive(type2, numFeaturesTrueU, numFeaturesDecU, te[type2], trueTable, decTable))+"\n")
+		output3.write(str(SVM.getTrueOrDeceptive(type3, numFeaturesTrueB, numFeaturesDecB, te[type3], trueTable, decTable))+"\n")
 		output4.write(str(trueOrDecC)+"\n")
 		output5.write(str(trueOrDecU)+"\n")
 		output6.write(str(trueOrDecB)+"\n")
+		print te.keys()
 		output.write(str(te["IsTrue"])+"\n")
 
-#output1.close()
-#output2.close()
-#output3.close()
+output1.close()
+output2.close()
+output3.close()
 
 output4.close()
 output5.close()

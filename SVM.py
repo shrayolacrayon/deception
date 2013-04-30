@@ -7,6 +7,10 @@ def getTrueOrDeceptive(type1, numFeaturesTrue, numFeaturesDec, reviewFeatures, t
 	truth= 0
 	deception= 0
 	#print "I am the true features: %i, and I am deception features: %i"% (numFeaturesTrue, numFeaturesDec)
+	#print "ADAM TEST!!!"
+	#print numFeaturesTrue
+	#print numFeaturesDec
+
 	for feature in reviewFeatures:
 		trueNum= trueTable[type1][feature]
 		#totalTrueNum= getTotalCountFeature(type1, trueTable)

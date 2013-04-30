@@ -1,7 +1,7 @@
 #compare text files
-readingOutput1= open("svm2Tests/char.txt","r")
-readingOutput2= open("svm2Tests/uni.txt","r")
-readingOutput3= open("svm2Tests/big.txt","r")
+readingOutput1= open("svm1Tests/char.txt","r")
+readingOutput2= open("svm1Tests/uni.txt","r")
+readingOutput3= open("svm1Tests/big.txt","r")
 
 correctReadingOutput= open("ValidationAnswers/T:D.txt", "r")
 
